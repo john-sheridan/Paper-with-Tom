@@ -1,0 +1,1277 @@
+\documentclass[3p]{elsarticle}
+
+\usepackage{graphicx,tikz,tikz-3dplot,tabu,amsmath,siunitx,amssymb}
+\usepackage[colorlinks=true,linkcolor=black, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{lineno}
+\modulolinenumbers[5]
+
+\usepackage{stix}
+\usepackage{trimclip}
+\usepackage{xspace}
+
+
+\graphicspath{{./figures/}}
+
+\newcommand{\Astar}{\ensuremath{A^{*}}}
+\newcommand{\Ustar}{\ensuremath{U^{*}}}
+\newcommand{\fstar}{\ensuremath{f^{*}}}
+\newcommand{\natf}{$f_n$}
+\newcommand{\fn}{\ensuremath{f_n}}
+\newcommand{\velrat}{\ensuremath{\alpha_r^*}}
+\newcommand{\freqrat}{\ensuremath{f_r^*}}
+\newcommand{\totph}{\ensuremath{\phi_{total}}}
+\newcommand{\Cy}{\ensuremath{C_y^{RMS}}}
+\newcommand{\fCy}{\ensuremath{f^*_{C_y}}}
+\newcommand{\fCystar}{\ensuremath{f^*_{C_y}}}
+\newcommand{\gtwo}{\ensuremath{\Gamma_2}}
+\newcommand{\wz}{\ensuremath{\omega_z^*}}
+\newcommand{\js}[1]{{\textcolor{blue}{{\bf{\it{ **John: #1 **}}}}}}
+
+\journal{Journal of Fluids and Structures}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+%\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Vibration reduction of a sphere through shear-layer
+	control}
+
+%% Group authors per affiliation:
+\author{Thomas McQueen}
+\corref{cor1}
+\ead{thomas.mcqueen@monash.edu}
+
+\author{Jisheng Zhao}
+
+\author{John Sheridan}
+
+\author{Mark C. Thompson}
+
+\cortext[cor1]{Corresponding author}
+
+\address{Fluids Laboratory for Aeronautical and Industrial Research (FLAIR), Department of Mechanical and Aerospace Engineering, Monash University, Melbourne, VIC 3800, Australia}
+
+
+
+\begin{abstract}
+To date, it has been shown that the vibration response of an elastically mounted sphere undergoing vortex-induced vibration (VIV) can be controlled by imposing rotary oscillations at frequencies close to the vibration frequency. 
+Here, we demonstrate that high-frequency rotary oscillations can be used to directly influence shear-layer vortex shedding and consequently reduce vibration. 
+This approach contrasts with aiming to directly target the large-scale wake structures, using lower frequency perturbations. 
+The oscillation frequencies imposed were between five and thirty-five times the natural frequency of the system and the amplitude of the rotational velocities were only 10\% of the free-stream velocity. 
+The effects of the rotary oscillations were found to vary significantly across sphere vibration modes. 
+In the mode III transition regime significant attenuation of the vibration response was observed for a narrow band of rotary oscillation frequencies. 
+Time-resolved particle image velocimetry revealed that the shear-layer vortex structures locked to the forcing frequency, where suppression of the vibration response occurred. 
+Optimal tuning of the oscillation frequency reduced the vibration amplitude in the mode III transition regime by 84\%, with a rotational velocity amplitude of only 10\% of freestream. 
+These results show low-amplitude shear-layer forcing is a promising method of more efficiently suppressing VIV of three-dimensional geometries.
+\end{abstract}
+
+\begin{keyword}
+Flow-induced vibration \sep flow control
+\end{keyword}
+
+\end{frontmatter}
+
+%\linenumbers
+
+\section{Introduction}%
+\label{sec:Intro}%
+Flow-induced vibration (FIV) arises frequently in a broad range of
+engineering situations. 
+Without adequate consideration of its effects, FIV can result in detrimental structural damage or complete structural failure. 
+As a result, the phenomenon has been extensively studied. 
+While there are multiple sources of excitation leading to FIV, perhaps the most extensively researched, and one often encountered in practice, is vortex-induced vibration (VIV). 
+VIV occurs due to a synchronisation between an object's natural frequency and its associated vortex shedding frequency. 
+Although to a lesser extent than cylinders, the VIV of spheres has also been studied. 
+Work over the past two decades by \citet{Williamson1997}, \citet{Govardhan1997}, \citet{Jauvtis2001}, \citet{Govardhan2005}, \citet{vanHout2010}, \citet{Behara2011}, \citet{Eshbal2012}, \citet{vanHout2013}, \citet{Krakovich2013}, \citet{Lee2013}, \citet{Behara2016}, \citet{Rajamuni2018a}, \citet{Sareen2018c}, and \citet{Eshbal2019}, amongst others, on tethered and elastically mounted spheres, has shown that the complex three-dimensional sphere wake enables sustained body vibration across a broad parameter space of reduced velocity, mass-damping parameter, and Reynolds number.
+
+Due to the aforementioned potential for severe structural damage,
+extensive research has also been conducted to develop both passive and active methods to reduce, or
+even eliminate, the occurrence of VIV. This has been primarily aimed at circular cylinders but also to a lesser extent for spheres. Furthermore, for
+active control strategies, researchers have demonstrated
+that control can not only be used to suppress vibration, but also to
+amplify it. Therefore, active control methods could 
+enhance the energy generation potential of devices such as
+the Vortex Induced Vibration Aquatic Clean Energy device (VIVACE)
+\citep{Bernitsas2008}. 
+
+Recent work on controlling sphere FIV was conducted by \citet{Sareen2018}. That research examined the effect of constant rotation 
+on the vibration response of a single degree of freedom (1DOF)
+elastically mounted sphere. They could suppress the vibration
+response across the mode I, mode II, and mode III transition
+regimes. Due to the effect of the Magnus force, there was a mean offset
+of the sphere position from the centre, which increased with both
+rotation ratio and reduced velocity. \Citet{vanhout2012} implemented
+acoustic control (using speakers mounted to the wind tunnel walls) on
+a tethered sphere at frequencies higher than the shear layer
+instability. They were able to suppress the response in the mode I and
+mode II regimes and amplify it in the mode III regime.
+\citet{Sareen2018b,Sareen2019} found that imposing rotary
+oscillations of the sphere at frequencies around that of the natural
+frequency of the system could reduce the magnitude of VIV. \citet{McQueen2020} implemented rotary oscillations by
+employing a feedback control system that used the sphere displacement
+as the controller input. The controller allowed the 
+phase between sphere displacement and rotation to be adjusted.
+
+The studies of \citet{Sareen2018b,Sareen2019} and \citet{McQueen2020}
+implemented rotary oscillations at, or close to, the vibration
+frequency of the sphere. The control was effective because they could
+lock the large-scale vortex shedding seen in the wake
+to the rotary oscillation frequency, or affect the phase between the
+large-scale vortex shedding and vibration. This change to the
+large-scale vortex shedding altered the fluid force acting on the
+sphere, and in turn the vibration response. While effective, the
+question remains whether it is more efficient to interact with
+this large-scale instability as opposed to other, smaller-scale flow
+structures found in the sphere's wake.
+
+For a fixed sphere, \citet{Sakamoto1990} collated previous results and
+conducted their own experiments on vortex shedding in the wake. They
+described the existence of a large-scale instability of the wake
+(termed the {\em low-mode instability}), which has a
+Strouhal number of 0.2 over a broad Reynolds number range beginning
+from approximately $Re=300$. Concurrently, they described a
+high-frequency instability (termed the {\em high-mode instability})
+associated with vortex rings, formed in the shear layer separating
+from the sphere, beginning at a Reynolds number of 800 and observed up to
+$6\times10^4$ by \citet{Kim1988}, the highest Reynolds number they
+tested. Unlike the low-mode instability, the high-mode instability
+increases with Reynolds number. \js{does the frequency or amplitude increase with Reynolds number? } 
+  
+In addition to quantifying the two instabilities, \citet{Sakamoto1990}
+also classified the wake patterns as a function of Reynolds number. In the range of interest in this study ($3900 \lesssim Re \lesssim 2.3\times10^4$), the flow separates from the sphere just prior to \ang{90}, forming a vortex sheet that becomes unstable as the flow convects downstream. 
+This results in the
+eventual periodic shedding of vortex loops. The large-scale low-mode
+instability of the wake becomes apparent further downstream, where a
+waviness of the wake is observable. \citet{Jang2007} conducted flow
+visualisations at $Re = 5300$ and $Re = 1.1\times10^4$ showing where
+the unsteadiness in the separated vortex sheet begins. They
+observed that the separated, laminar, vortex sheet remains
+axisymmetrically stable to a distance of approximately $1.2-1.3$
+diameters downstream of the rear of the sphere for $Re = 5300$, and
+only $0.5$ diameters downstream for $Re = 1.1\times10^4$. Similarly, \citet{Bakic2006} conducted flow visualisations over a large
+Reynolds number range of
+$2.2\times10^4 \leqslant Re \leqslant 4\times10^5$. For
+$Re = 2.2\times10^4$, their visualisations show distinct vortex
+structures forming in the separated shear layer just downstream of the
+rear of the sphere. For $Re = 5\times10^4$, they noted that in
+addition to vortex roll-up, a vortex pairing process just downstream
+of separation occurred. \citet{Rodriguez2011} conducted direct
+numerical simulations at $Re = 3700$ and described the dynamics of the
+shear layer in more detail. They outlined how initial random
+disturbances are amplified and propagate downstream in the shear
+layer. This leads to the formation of vortices that end up being both
+drawn into the recirculating zone behind the sphere as well as feeding
+the turbulent wake. \citet{Yun2006} examined the wake of a sphere at
+$Re = 1 \times10^4$ and described how the vortices generated by the
+high-mode instability convect downstream to compose the large-scale
+waviness of vortical structures in the wake. They suggested a link
+between the high- and low-mode instabilities, observing that multiple
+cycles of vortex rings, composing about half of a large-scale wake
+cycle, tilt in the same direction due to a difference in velocity
+around the sphere which is closely associated with the wall-pressure
+distribution. For an elastically mounted sphere,
+or a tethered sphere at least, \citet{vanHout2013} found a broad
+spectral peak in the shear layer centred around the frequency of the high-mode instability observed
+in the shear layer of a fixed sphere at the same Reynolds number,
+indicating that the effect of the elastic mounting on the high-mode
+instability is minimal. 
+Evidently, the shear-layer dynamics are a prominent
+feature of the fixed sphere wake for the Reynolds number range of
+interest here. Past research has shown that the structure of the near
+wake is largely a result of the presence of the high-mode instability.
+However, whether there is any connections between the low-
+and high-mode instabilities remains an unanswered question.
+
+To date, the studies implementing rotary oscillations
+\citep[e.g.,][]{Sareen2018b,Sareen2019,McQueen2020} have all attempted
+to directly influence the large-scale instability in the wake. Here,
+we aim to determine if it is possible to suppress vibration by
+altering the characteristics of the high-mode shear-layer instability
+to in turn affect the large-scale, lift inducing, vortices using
+low-amplitude rotary oscillations at much higher frequencies than
+previously implemented. We seek to do this
+using rotary oscillations at five to thirty-five times
+the natural frequency of the system at an amplitude of, typically,
+only 10\% of free-stream velocity. First, the
+vibration response is characterised for select reduced velocities in
+the mode II and mode III transition regimes. Time-resolved particle
+image velocimetry (TR-PIV) is then used to examine the effect of the
+oscillatory forcing on the wake of both a fixed and an elastically
+mounted sphere for several control conditions.
+
+Throughout this paper, the effects of imposed rotation are often
+compared to the standard vibration response without imposed rotation.
+Hereafter, the response of the sphere with no imposed rotation will be
+referred to as the `natural' response.
+
+A comparison to the work of
+\citet{Achenbach1974,Kim1988,Sakamoto1990}, and \citet{Yun2006} provides 
+some context to the imposed forcing frequencies implemented 
+here. These studies examined examined the flow instabilities in the wake of a fixed
+sphere. Figure~\ref{fig:otherstudies} shows the variation of the two
+instabilities observed in the wake of a sphere over $300 \lesssim Re \lesssim 7 \times 10 ^4$ using data collated from past studies. Furthermore, the range of rotation frequencies implemented here in the mode III transition regime ($\Ustar=15$) where significant attenuation of the vibration occurs,  and the instabilities identified for a fixed sphere at equivalent conditions are shown. The imposed rotation frequencies are in the range between the
+two wake instabilities, with the most effective forcing frequency
+($\freqrat=21$) being approximately 37\% of the high-mode instability.
+%
+\begin{figure}
+	\centering
+	\includegraphics{otherstudies.png} %otherstudies.m
+	\caption{Low- and high-mode instabilities as observed by
+		\cite{Achenbach1974} ($\smallblacktriangleleft$), \cite{Kim1988}
+		($\smallblacktriangleright$), \cite{Sakamoto1990}
+		($\mdblklozenge$), and \cite{Yun2006} ($\smblksquare$). The
+		vertical black line shows the range of rotary oscillation
+		frequencies implemented for $\Ustar=15$ in this study. The
+		orange circle markers indicate the low- and high-mode
+		instabilities identified in the wake of the fixed sphere without
+		rotation at the same Reynolds number as for $\Ustar=15$.}
+	\label{fig:otherstudies}                                            
+\end{figure}
+%
+
+%%%%%
+
+%Although the optimal rotation frequency is only 37\% the high-mode
+%instability, it is significantly higher ($>700$\%) than the low-mode
+%instability. Furthermore, as discussed, for an elastically mounted
+%sphere undergoing VIV, the low-mode instability remains locked to the
+%vibration frequency in the mode II regime. The imposed forcing
+%frequency is therefore further separated from the frequency of
+%large-scale vortex shedding (low-mode instability) seen in the wake of
+%a sphere undergoing VIV than indicated in
+%figure~\ref{fig:otherstudies}. 
+
+\section{Experimental methodology}
+\subsection{Fluid-structure system modelling}%
+The system studied here has an elastically mounted sphere that
+is free to vibrate only in the y-direction, transverse to the free-stream
+flow. Rotation (for control) of the sphere is imposed about the z-axis
+perpendicular to the direction of free-stream flow and the
+free-vibration axis. Figure~\ref{fig:Schematic} illustrates the
+fluid-structure interaction set-up looking down along the rotation
+axis.
+%
+\begin{figure}
+	\centering
+	\includegraphics{Schematic.eps}
+	\caption{Schematic of the experimental set-up highlighting the
+		key parameters for the transverse VIV of a rotatory
+		oscillating sphere. The hydro-elastic system is simplified
+		as a 1DOF system constrained to move in the cross-flow
+		direction. The axis of rotation is perpendicular to both the
+		free-stream flow direction ($x$-axis) and the vibration axis
+		($y$-axis). Here, $U$ is the free-stream velocity, $F_y$ is
+		the transverse force, $k$ is the spring constant, $D$ is the
+		sphere diameter, $m$ is the oscillating mass, $c$ is the
+		structural damping, and $\theta$ is the angular position of
+		the sphere.}
+	\label{fig:Schematic}
+\end{figure}
+
+As the sphere was constrained to vibrate along one axis, the governing
+equation of motion of the system can be expressed as
+%
+\begin{equation}\label{rotation}
+m\ddot{y}+c\dot{y}+ky=F_y {,}
+\end{equation}
+%
+where $m$ is the total oscillating mass, $c$ is the structural damping
+factor, $k$ is the spring constant, $y$ is the body displacement, and
+$F_y$ is the transverse fluid force (the transverse lift). The
+vibration response of the sphere can be characterised using the
+non-dimensional parameters listed in table~\ref{tab:Parameters}.
+%
+\begin{table}
+	\renewcommand{\arraystretch}{1.5}% adjust the row spacing
+	\begin{center}
+		\def~{\hphantom{0}}
+		\begin{tabular}{lccc}
+			Amplitude ratio   &   \Astar & $\sqrt{2}A_{RMS}/D$\\
+			Damping ratio & $\zeta$ & $c/\sqrt{k(m+m_A)}$\\
+			Frequency ratio & \fstar & $f/f_n$\\
+			Mass ratio & $m^*$ & $m/m_d$\\
+			Mass-damping parameter & $\xi$ & $(m^*+C_A)\zeta$\\
+			Reduced velocity & \Ustar & $U/f_nD$\\
+			Reynolds number & $Re$ & $\rho UD/\mu$\\
+			Strouhal number & $St$ & $f_{vo}D/U$\\
+			Transverse force coefficient & $C_y$ & $F_y/(\frac{1}{8}\rho U^2\pi D^2)$\\
+			Transverse force frequency ratio & $f^*_{C_y}$ & $f_{C_y}/f_n$\\
+		\end{tabular}
+	\end{center}                
+	\caption{Relevant non-dimensional parameters. Here, \Astar~is the root-mean-square value of the vibration amplitude in the $y$ direction, $D$ is the sphere diameter, $c$ is the structural damping, $k$ is the structural stiffness, $m$ is the oscillating mass, $m_A=C_Am_d$ is the added mass, $m_d$ is the displaced mass of the fluid, $C_A$ is the added mass coefficient ($0.5$ for a sphere), $f_n$ is the natural frequency of the system in quiescent water, $f_{vo}$ is the equivalent fixed-body vortex shedding frequency, $f$ is the body oscillating frequency, and $F_y$ is the transverse fluid force acting on the sphere.}
+	\label{tab:Parameters}
+\end{table}
+
+Equation \ref{rotation} defines the rotation profile of the sphere and
+introduces the two parameters used to vary the rotary oscillations,
+namely: rotation amplitude ($\Omega_0$) (peak angular velocity), and
+rotary oscillation frequency ($f_r$).
+
+\begin{equation}
+\label{rotation} \Omega={\Omega_0}\sin{(2\pi{f_r}t)}.\\
+\end{equation}
+
+These two parameters are normalised as per equations
+\ref{rotationratio} and \ref{forcingfreqratio}, and are referred to as
+the rotation ratio (\velrat) and forcing frequency ratio (\freqrat),
+respectively.
+
+\begin{equation}
+\label{rotationratio} {\alpha_r}^*=\frac{D\Omega_0}{2U}.\\
+\end{equation}
+
+\begin{equation}
+\label{forcingfreqratio} {f_r}^*= \frac{f_r}{f_{n}}.
+\end{equation}
+
+The rotation ratio was kept constant at \velrat~$=0.1$, aside from
+\S~\ref{sec:rotamp}, where it was varied between $0\leqslant$ \velrat~$\leqslant1$
+to examine the efficiency of the control strategy. Likewise, the
+forcing frequency ratio was varied between $1\leqslant$ \freqrat~$\leqslant35$,
+except in \S~\ref{sec:rotamp}, where it was varied between $0.125\leqslant$
+\freqrat~$\leqslant35$. The upper limit of these parameters was due to
+torque limitations of the servo-motor.
+%
+\subsection{Experimental set-up}%
+The investigation was conducted in the recirculating free-surface
+water channel of the Fluids Laboratory for Aeronautical and Industrial
+Research at Monash University. The water channel has a working section
+of 600\,mm in width, 800\,mm in depth, and 4000\,mm in length. The
+free-stream turbulence level was less than 1\% over the flow-rate
+range investigated. A schematic of the experimental set-up is shown in
+figure~\ref{fig:setup}. A 70\,mm diameter sphere, CNC precision
+machined from modelling board (Renshape 460), was mounted by a 3\,mm
+rod to a servo motor (Maxon Motor, EC-max 4-pole 22, equipped with a
+rotary encoder with a resolution of 5000 counts per revolution). The
+servo-motor was mounted to a linear air-bearing system that
+constrained the sphere to move with only 1DOF, transverse to the
+oncoming flow. The top of the sphere was immersed one sphere diameter
+beneath the free-surface, a compromise between minimising the
+influence of the mounting rod and free surface, suggested by
+\citet{Govardhan2005} and \citet{Sareen2018c}. The transverse sphere position was
+measured using a digital linear encoder (RGH24, Renishaw, UK) with
+a resolution of $1\,\mu$m. Both the transverse and angular positions of
+the sphere were measured at a sampling rate of 500\,Hz for 300\,s for
+each data-set, which consisted of at least 80 vibration cycles. The transverse displacement measurements were filtered
+using a fourth-order low-pass Butterworth filter with a cutoff
+frequency of 1\,Hz to remove high-frequency noise. For more details on
+the air-bearing system see \citet{Nemes2012} and \citet{Zhao2014}. For
+more details on the experimental set-up used here, see
+\citet{McQueen2020}.
+
+The mass ratio (the ratio of the total oscillating mass to the mass of
+displaced fluid) of the system was $m^*= 10.1$. The structural damping
+(with consideration of the added mass effect) and natural frequency of
+the system in quiescent water were measured to be
+$\zeta=4.22\times10^{-3}$ and $f_n=0.269$\,Hz. The
+free-stream velocity was varied from $56\, \mathrm{mm\,s^{-1}}$ to
+$336\, \mathrm{mm\,s^{-1}}$, corresponding to a Reynolds number range
+of $3.9\times10^3 \leqslant Re \leqslant 2.3\times10^4$. The reduced
+velocity range was $3 \leqslant U^* \leqslant 18$.
+
+As a result of the highly accurate digital displacement measurements,
+the sphere's velocity and acceleration can be derived accurately. 
+In turn, the lift force and phase between lift and
+displacement can be determined. Using the same air-bearing system as
+used here, \citet{Zhao2018} and \citet{Sareen2018} have verified this
+methodology for the circular cylinder and sphere, respectively, by
+making comparison to independent measurements of lift force obtained
+using a force balance.
+
+To reveal the influence of the rotary oscillations on the wake
+dynamics for both a fixed and an elastically mounted sphere, TR-PIV was
+acquired in the equatorial plane ($x$-$y$). The flow was seeded using
+hollow micro-spheres (model Sphericel 110P8; Potters Industries Inc.)
+with normal diameter 13 $\mu$m and specific weight 1.1 g cm$^{-3}$. A
+high-speed camera (Dimax S4, PCO AG, Germany) with resolution 2016
+$\times$ 2016 pixel$^2$ was used in conjunction with a 5 W continuous
+laser (MLL-N-532 mm, CNI, China) that produced a 3 mm thick laser
+sheet to capture the images. A 105 mm lens (Nikkon, Japan) was used to
+obtain a magnification factor of 16.89 pixel mm$^{-1}$. In-house
+cross-correlation software, originally developed by
+\citet{fouras2008}, was used to correlate interrogation windows of
+size 32 $\times$ 32 pixel$^2$ with an overlap of 50\% to obtain the
+velocity fields. This corresponded to a velocity vector field of 125
+$\times$ 125 vector$^2$ with a vector spacing of 0.014 D. For each
+experimental configuration, two sets of data, comprising 6297 images
+each, were acquired at 500 Hz. Concurrently, the sphere transverse and
+angular positions were recorded at 4\,kHz to enable the sphere to be
+accurately located in the images.
+
+%
+\begin{figure}                                         
+	\centering                                     
+	\includegraphics{setup_openloop_v2.png}        
+	\caption{Schematic of the experimental set-up.}
+	\label{fig:setup}                              
+\end{figure}                                           
+%
+
+\section{The Vibration response}%
+\label{sec:response}%
+\subsection{The natural response}%
+Due to a synchronisation between the forces induced on the sphere,
+primarily by large-scale vortex shedding in the wake
+\citep{Govardhan2005}, and the natural frequency of the
+fluid-structure system, an elastically mounted sphere will experience
+vibration. The vibration can be characterised into a series of modes,
+initially identified by \citet{Jauvtis2001}. With increasing
+free-stream velocity, the vortex shedding frequency of the sphere
+approaches the natural frequency of the system. Synchronisation or
+`lock-in' then occurs, resulting in a relatively sudden onset of
+vibration (mode I). Subsequently, the frequency of vortex shedding
+remains locked-in to the natural frequency of the system and vibration
+continues over a broad reduced velocity range. Mode II is defined by a
+transition in the phase difference between the sphere transverse displacement and fluid force (total phase) from near \ang{0}, through \ang{90}, to near
+\ang{180}. 
+
+Figure~\ref{fig:natres} shows the mean vibration amplitude
+over the reduced velocity range investigated in this study. The
+vertical bars show the mean of the top and bottom 10\% of vibrations.
+A higher velocity mode of vibration (mode III) occurs above the
+reduced velocity range investigated. Here, the vibration regime past
+mode II is termed the `mode III transition regime'. Unlike for the circular cylinder, there is no distinct change in the wake patterns observed in the wake of the sphere with varying reduced velocity. Rather, as mentioned, there is only a slow transition in the total phase. As such, it is more difficult to define the range of the modes associated with sphere vibration. The modes of interest in this study are annotated in figure~\ref{fig:natres} along with blue shading indicating the approximate range of the transition regions.
+%
+\begin{figure}
+	\centering
+	\includegraphics{natresponse.png} %Best Reduction
+	\caption{Natural vibration response of the sphere (black
+		diamonds). The vertical bars show the mean of the top and
+		bottom 10\% of vibrations. The orange circles show the
+		maximum variation in the vibration amplitude observed for
+		the range of forcing frequency ratios implemented. The
+		forcing frequency ratios shown are $\freqrat=7$ at
+		$\Ustar=6$, $\freqrat=34$ at $\Ustar=9$, $\freqrat=34$
+		at $\Ustar=10$, $\freqrat=6$ at $\Ustar=12$,
+		$\freqrat=21$ at $\Ustar=15$, and $\freqrat=22$ at
+		$\Ustar=18$. The blue shading indicates the approximate location of the transition regions between modes of vibration.}
+	\label{fig:natres}
+\end{figure}
+%
+\subsection{Effect of control on the vibration response}%
+To characterise the effect of high-frequency low-amplitude forcing on
+the vibration response, rotary oscillations were imposed over the
+range $5\leqslant$ $\freqrat\leqslant35$, in $\Delta\freqrat=1$
+increments, at reduced velocities in the mode I, mode II, and
+mode III transition regimes with $\velrat=0.1$. The orange
+markers in figure~\ref{fig:natres} depict the maximum change in the
+vibration amplitude across the range of forcing frequency ratios
+investigated. As evident from figure~\ref{fig:natres}, with imposed
+high-frequency oscillations, it is more difficult to alter the
+vibration response in the mode I and mode II transition regimes,
+where the natural vortex shedding frequency remains
+close to the natural frequency of the system. A similar observation
+was made by \citet{Sareen2018b} for imposed rotary
+oscillations at much lower frequencies around the natural frequency of
+the system. Past the peak of the mode II regime the vibration
+suppression is rapidly enhanced until approximately $\Ustar=15$. To summarise the effect of the imposed rotary oscillations on the
+vibration response of the sphere, a contour plot showing the
+percentage change in vibration amplitude from the natural response
+over the $\freqrat - \Ustar$ parameter space investigated is shown in
+figure~\ref{fig:combo}. Line contours in increments of 50\% vibration amplitude alteration have been arbitrarily chosen to highlight significant amplitude variation. The orange markers indicate the conditions at
+which TR-PIV, to be examined in \S~\ref{sec:wake}, was acquired.
+This figure highlights the relatively narrow band of forcing
+frequencies for which significant vibration suppression occurs in the
+mode III transition regime. The range of forcing frequencies for which significant suppression occurs widens with increasing reduced velocity. It also appears that at low reduced
+velocities, high-frequency oscillations slightly increase the
+amplitude response. In this study we are particularly interested in determining the conditions for which the imposed rotation significantly suppresses the vibration and any associated effects on the wake structures. Therefore, hereafter we focus on results obtained past the peak of the mode II response, where significant vibration suppression was identified (figures~\ref{fig:natres} and~\ref{fig:combo}). 
+%
+\begin{figure}
+	\centering
+	\includegraphics{VIVchange.png} %ContourOfReductionPhasev2.m
+	\caption{Contour plot of the variation in vibration amplitude
+		from the natural response across the $\Ustar - \freqrat$ parameter space. The colour contours show the
+		percentage change in vibration amplitude from the natural
+		response. The orange markers indicate conditions at which
+		TR-PIV was acquired.}
+	\label{fig:combo}
+\end{figure}
+%
+
+In the mode III transition regime, at $\Ustar=15$, there is significant attenuation of the amplitude response (up to 81\%) for a relatively narrow band of forcing frequency ratios centred around $\freqrat\approx22$ (figure~\ref{fig:U15}($a$)). 
+The vertical bars in figure~\ref{fig:U15}($a$), which show the mean of the top and bottom 10\% of vibrations, can provide an indication of the periodicity of the amplitude response. 
+Away from the suppressed regime, little variation in periodicity is seen. 
+Within the suppressed regime though, much larger variation in periodicity and a slightly broader range in the spectral power of the vibration frequency can be observed (figure~\ref{fig:U15}($b$)), however in general, $\fstar\approx1.05$ remains dominant throughout. 
+There is also variation in the frequency of the transverse force acting on the sphere. 
+For $\freqrat=21$, where the maximum reduction in vibration amplitude is observed, there is a distinct lack of spectral power seen in the power spectral density (PSD) estimate of transverse force frequency at $\fCy=1$ (figure~\ref{fig:U15}($c$)). 
+The time series of sphere displacement (figure~\ref{fig:U15}($e-h$)) shows that even where vibration is significantly suppressed, and large variation in vibration amplitude is seen over the test duration, the vibration frequency remains close to $\fstar=1.05$. 
+For $\freqrat=21$, at times the vibration response was nearly completely suppressed before abruptly increasing over only a few vibration cycles (figure~\ref{fig:U15}($g$)). This behaviour was repeatedly observed in the suppressed regime. 
+
+Where the vibrations are suppressed, there is significant variation in
+the instantaneous total phase measured. Therefore, the
+arithmetic mean may not provide a reasonable indication of the mean
+total phase. For example, the arithmetic mean of $0^\circ$ and
+$180^\circ$ is $90^\circ$ which is not a useful measure for our
+purpose. A more suitable estimation may be obtained by calculating the
+circular mean.
+
+For a circular quantity such as total phase, the mean resultant vector
+of the total phase distribution can be expressed as
+%
+\begin{equation}
+\bar{\rho} = \frac{1}{n}\sum_{j=1}^{n}e^{i{\phi_{total}}_j},
+\end{equation}
+%
+where $n$ is the total number of samples in a data-set. The resultant
+vector can be used to obtain a mean phase angle,
+%
+\begin{equation}
+\phi_{total} = Arg{(\bar{\rho})},
+\end{equation}
+%
+and an indication of the variance of the angles,
+%
+\begin{equation}
+Var(\phi_{total}) = 1 - |{\bar{\rho}|},
+\end{equation}
+%
+where the minimum possible variance, 0, indicates that all angles are
+equal and the maximum, 1, indicates that the angles are spread over
+\ang{0} to \ang{360} and that there is no useful indication of a
+mean phase angle.
+
+For forcing frequencies outside of the suppressed regime there is no
+appreciable variation in total phase and only slight variation in the
+variance of the total phase. In the suppressed regime, while there
+appears to be a significant change to the mean total phase, the
+variance is very close to one indicating that the total phase is
+continuously varying and that there is no practical representation of
+a mean total phase.
+%
+\begin{figure}
+	\centering
+	\includegraphics{U15plot.png}
+	\caption{Response of the sphere with imposed rotation at
+		\Ustar~$=15$ as a function of forcing frequency ratio. ($a$) Variation of vibration amplitude, the vertical bars show the mean of the top and bottom 10\% of vibrations. The black dashed line shows the natural response. ($b,c$) PSD contour plots of the vibration frequency (\fstar) and
+		transverse force frequency (\fCystar), the spectral power is normalised by the maximum value at each \freqrat~and is
+		presented on a log 10 scale. ($d$) Variation in total phase (black diamonds) and circular variance of total phase
+		(orange circles). The black and orange dashed lines show the total phase and circular variance respectively
+		for the natural response. Time series of sphere displacement for ($e$) \freqrat~$=0$,
+		($f$) \freqrat~$=16$, ($g$) \freqrat~$=21$, and ($h$)
+		\freqrat~$=26$.}
+	\label{fig:U15}
+\end{figure}
+%
+
+At the highest reduced velocity investigated, $\Ustar=18$, a step
+change in the amplitude response at $\freqrat=20$ was observed,
+resulting in a vibration amplitude reduction of up to 84\%
+(figure~\ref{fig:U18}($a$)). Whilst a broader power spectrum of
+vibration frequency is observed for forcing frequencies above the step
+change in amplitude response, once more, the dominant vibration
+frequency remains fixed for all forcing frequencies at
+$\fstar\approx1.05$ (figure~\ref{fig:U18}($b$)). Beyond the step
+change, the peak in spectral power seen in the transverse force at
+$\fCy\approx1$ is no longer visible, with most of the power situated
+at lower frequencies. Note that even for the natural response, the
+vibrations are noticeably less periodic at this high reduced velocity.
+Figure~\ref{fig:U18}($f,g$) highlights the rapid change in amplitude
+response seen between $\freqrat=18$ and $\freqrat=21$.
+At $\freqrat=18$, there is only slight variation in the vibration
+amplitude from the natural response. At $\freqrat=21$, however, the
+vibration is significantly suppressed and a low frequency `pulsing' in
+the vibration response can be observed (figure~\ref{fig:U18}($g$)).
+For very high forcing frequencies, there is large scatter in the
+amplitude response. Examining the time series of sphere displacement
+at $\freqrat=30$ (figure~\ref{fig:U18}($h$)), a characteristic
+response for very high forcing frequencies, reveals periods of almost
+complete vibration suppression followed by relatively large vibration.
+This transition from nearly completely to only minimally suppressed
+vibration appears to happen sporadically. As for $\Ustar=15$, the
+total phase correlates well with changes in the amplitude response.
+Where there is minimal vibration suppression, there is no appreciable
+change to the total phase. Between $\freqrat=5$ and $\freqrat=20$,
+where the step change in the amplitude response occurs, the variance
+of the total phase steadily increases. Beyond the step change the
+variance remains close to one, indicating once more that in the
+suppressed regime there is no practical mean total phase.
+%
+\begin{figure}
+	\centering
+	\includegraphics{U18plot.png}
+	\caption{Response of the sphere with imposed rotation at
+		$\Ustar=18$ as a function of forcing frequency ratio. Time
+		series of sphere displacement for ($e$) $\freqrat=0$,
+		($f$) $\freqrat=18$, ($g$) $\freqrat=21$, and ($h$)
+		$\freqrat=30$. See figure~\ref{fig:U15} for further
+		details.}
+	\label{fig:U18}
+\end{figure}
+%
+
+\subsection{Effect of rotary oscillation amplitude} \label{sec:rotamp}
+%
+The intent of this study is predominantly to examine the effect of
+high-frequency rotary oscillations on the vibration response for a rotation amplitude much smaller than the free-stream speed ($\velrat=0.1$). However, examining the effect of varying the rotation amplitude is of additional interest
+as it allows us to gain an understanding of both the potential
+efficiency of the control method and an indication of the sensitivity
+of the method to small variations in control conditions. Therefore, the effect of varying rotation amplitude in the mode III transition regime ($\Ustar=15$)
+over the $\velrat - \freqrat$ parameter space of $0\leq\velrat\leq0.75$ and $5\leq\freqrat\leq35$ was examined (figure~\ref{fig:ampvar}).
+
+For rotation amplitudes below $\velrat=0.075$, there is minimal
+vibration suppression at any forcing frequency. By $\velrat=0.1$, the
+vibrations are significantly suppressed over the regime
+$20\lesssim\freqrat\lesssim25$, as analysed in detail. By $\velrat=0.3$, the vibrations are significantly
+suppressed for all forcing frequencies. Thereafter, the amplitude
+response remains relatively insensitive to an increase in velocity
+ratio. This suggests that the effect of the imposed rotary
+oscillations on the vibration response becomes saturated and that any
+further increase in energy input, at least over the range of rotation
+amplitudes investigated, will only serve to reduce control efficiency.
+%
+\begin{figure}
+	\centering
+	\includegraphics{avarU15.png} %
+	\caption{Variation of vibration amplitude across the $\velrat -
+		\freqrat$ parameter space for $\Ustar=15$. Colour-bar shows
+		\Astar.}
+	\label{fig:ampvar}
+\end{figure}
+%
+
+\subsection{Variation of instantaneous vortex phase}
+\citet{Sareen2018b,Sareen2019} found that by imposing rotary
+oscillations at frequencies close to the natural frequency of the
+system, the large-scale streamwise vortex structures that have been
+shown to be the primary contributor to sustained VIV
+\citep{Govardhan2005} lock to the imposed oscillation frequency,
+uncoupling the fluid forcing from the natural frequency of the system
+and suppressing vibration. Evidently, the phase difference between the sphere
+displacement and the force on the sphere due to vortex dynamics
+(vortex phase, $\phi_{vortex}$)  is an important indicator of the
+vibration response. The significantly higher forcing
+frequencies imposed in this study were not expected to cause a lock-on 
+to the large-scale structures if the vibration was supressed. From figure~\ref{fig:U15}, shows that where the vibration was suppressed, the variance of total phase
+significantly increased, suggesting that the transverse fluid force
+acting on the sphere became less `locked' to the sphere vibration.
+The peaks in the fluid force appear to occur more sporadically over a
+vibration cycle. To examine the variance in more detail, histograms of
+the vortex phase at $\Ustar=15$ and $\velrat=0.1$ are shown in
+figure~\ref{fig:phasehist}. For the natural response, the vortex phase
+is highly consistent and centred close to \ang{180}. Similarly, with
+imposed rotation at $\freqrat=16$, and to a lesser extent
+$\freqrat=26$, the vortex phase is centred close to \ang{180} and
+varies only slightly from the mean phase angle. For $\freqrat=21$
+however, the histogram shows a wide spread in the vortex phase. The
+phase angle is predominantly in the range
+$\ang{90} < \phi_{vortex} < \ang{270}$ with two broad peaks centred
+around \ang{150} and \ang{225}. This suggests that the
+imposed rotation causes the large lift-inducing vortex structures to
+form either earlier or later in the vibration cycle, but not regularly
+at the position in the cycle seen for the natural response.
+In the suppressed regime, while some variation in the
+frequency of transverse force acting on the sphere was observed, the
+dominant vibration frequency of the sphere remained constant at the
+value observed for the natural response. The variation of vortex phase
+and consistent vibration frequency suggests
+that the imposed rotation does not induce any lock-on behaviour of the
+large-scale wake structures, as observed in previous studies. Yet
+significant differences in the vibration response were observed,
+suggesting that the high-frequency oscillations interact with the
+sphere wake in a different manner to that seen previously. \js{Which previous study are you referring to here?} To reveal
+how the imposed rotary oscillations interact with the wake to suppress
+vibration, the wake structure was examined.
+
+\begin{figure}
+	\centering
+	\includegraphics{phasehist.png} %ContourOfPower
+	\caption{Histograms of vortex phase. The polar angle shows vortex phase. The radius shows the probability density. The bin width is \ang{2}. The orange line indicates the circular mean vortex phase angle.}
+	\label{fig:phasehist}
+\end{figure}
+%
+
+\section{Influence of rotary oscillations on the wake structure} \label{sec:wake}%
+To elucidate why the high-frequency rotary oscillations suppress VIV in the mode III transition regime for a
+narrow band of frequencies, TR-PIV data was acquired in the
+equatorial ($x$-$y$) plane of both a fixed and an elastically mounted
+sphere. It was acquired for the imposed control conditions indicated by the orange markers in figure~\ref{fig:combo}. While the sphere wake is
+inherently three-dimensional, the equatorial plane provides a cut
+through the vortex structures emanating from the sphere in the location at
+which the effect of rotation is likely highest, due to the maximum
+circumferential velocity of the sphere at the equator. In addition to the natural response in the mode III transition regime, particular focus was given to the three imposed forcing frequencies indicated by the markers with black outline in figure~\ref{fig:combo}. As shown in figure~\ref{fig:combo}, these three imposed forcing frequencies should provide a good indication of any changes to the wake structures observed in, and on either side of, the suppressed regime. Due to the difficulty associated with dynamic analysis in the wake of a moving object, the
+wake of a fixed sphere is first examined, as it is hypothesised that
+any significant variations to the near wake would likely be observed
+regardless of the mounting condition.
+
+\subsection{Fixed Sphere} \label{sec:fixed} 
+Figure~\ref{fig:meanUvel} shows mean streamlines of the time-averaged wake
+and principle Reynolds stresses, $R_{y'y'}$. Some asymmetry of the
+wake is noticeable due to the small number ($\sim10$) of low-mode
+shedding cycles in each TR-PIV data set. Separation occurs at
+approximately \ang{90}, in good agreement with past studies: \citet{Yun2006},
+\ang{90} at $Re=1\times10^4$; \citet{Tomboulides1993}, \ang{88} at
+$Re=2\times10^4$; \citet{Constantinescu2003}, \ang{84} at
+$Re=1\times10^4$; and \citet{Grandemange2014}, \ang{90} at
+$Re=1.9\times10^4$. The time-averaged separation angle is not noticeably affected by
+the imposed rotation. The wake closure distance is shortened for all
+imposed rotation frequencies, by up to approximately 15\% for
+$\freqrat=21$ and $\freqrat=26$. Although the wake closure distance
+is the same for $\freqrat=21$ and $\freqrat=26$, the vortex cores
+are located closer to $y/D=0$ (i.e., further inboard) for
+\freqrat~$=21$, indicating a narrower wake. $R_{y'y'}$ increases with
+imposed forcing close to the sphere in the shear-layer region, where
+the vortex structures are shed and convect downstream for the natural response.
+For all forcing frequencies, high $R_{y'y'}$ is also seen in the
+centre of the wake for $x/D>1$, where the shear-layer structures begin
+to noticeably break down and the low-mode instability becomes dominant
+for a stationary sphere at this Reynolds number.
+%
+\begin{figure}
+	\centering
+	\includegraphics{meanURE.png} %
+	\caption{Top: Mean streamlines and streamwise velocity
+		determined from two sets of TR-PIV data for $\Ustar=15$ and ($a$)
+		$\freqrat=0$, ($b$) $\freqrat=16$, ($c$) $\freqrat=21$,
+		and ($d$) $\freqrat=26$. The orange cross indicates the
+		wake closure ($WC$) point.
+		Bottom: $R_{y'y'}$ for ($e$) $\freqrat=0$, ($f$)
+		$\freqrat=16$, ($g$) $\freqrat=21$, and ($h$)
+		$\freqrat=26$.}
+	\label{fig:meanUvel}
+\end{figure}
+%
+
+To quantify the narrowing of the wake, the width of the reverse flow region (i.e., $u<0$ ms$^{-1}$) was calculated for all streamwise velocity vector locations between the rear of the sphere and wake closure (figure~\ref{fig:width}). At all downstream locations prior to wake closure the reverse flow region was narrowest for $\freqrat=21$, the most effective forcing frequency in suppressing vibration of the control conditions analysed. 
+%
+\begin{figure}
+	\centering
+	\includegraphics{WakeWidth.png}
+	\caption{The width of the wake ($Y_{ww}$), defined as the time-mean streamwise reverse flow region.}
+	\label{fig:width}
+\end{figure} 
+ 
+
+For the natural response, close to the sphere in the shear layer, a
+distinct spectral peak in the cross-stream ($y$-direction) velocity at the
+high-mode instability ($St=3.87$) is observed. However, only slightly further
+downstream, the sub-harmonic of the high-mode instability ($St=1.93$)
+becomes dominant. Figure~\ref{fig:p1spatial}($a$) shows the spatial distribution of spectral power for these two dominant frequencies seen in the shear layer for the natural response. Figure~\ref{fig:p1spatial}($b-d$) shows PSD estimates for the three locations indicated by the markers in Figure~\ref{fig:p1spatial}($a$). At $P_1$, the location closest to the sphere the high-mode instability is dominant for the natural response, with a broader peak observable around the sub-harmonic of the instability. By $P_2$, while the high-mode instability remains visible for the natural response, the sub-harmonic has become dominant. Lastly, by $P_3$, the spectral power of both frequencies is reduced for the natural response, with an almost monotonic decrease in power from the sub-harmonic frequency.
+
+Figure~\ref{fig:p1spatial}($b-d$) also show the PSD estimates for the three imposed rotation conditions of particular interest. Evidently, imposed rotation at all three forcing frequencies significantly affects the power spectrum. For the three imposed rotation conditions there are distinct, sharp
+peaks in the power spectrum at the forcing frequency at all three locations in the shear layer (figure~\ref{fig:p1spatial}($b-d$)). The spatial distribution of spectral power
+of the forcing frequencies is shown in figure~\ref{fig:rotfreqpow}.
+The spectral power of the forcing frequencies is distributed across
+approximately the same spatial region as the combination of both the
+high-mode instability and its sub-harmonic observed for the natural response, with the region of peak power at
+approximately $x/D=0.4$ for all three forcing frequencies. The large spatial domain over which the
+imposed forcing frequencies are dominant in the wake, along with the lack of a spectral peak at the natural instability frequency, suggests that
+the high-mode instability is suppressed, with the shedding of vortex structures locked to the forcing frequency, and that no
+subsequent reduction of the dominant frequency to the first
+sub-harmonic, as seen for the natural response, occurs. \js{So, what are we to conclude from this? Is it surprising that the 
+natural shear layer frequency(?) is suppressed at these frequencies or would this occur for any imposed frequency at this amplitude?}
+%
+\begin{figure}
+	\centering
+	\includegraphics{p1spatial.png}
+	\caption{($a$) Spatial distribution of spectral power for $St=3.87$ and $St=1.93$ for the natural response. ($b, c, d$) PSD estimate of cross-stream velocity, averaged over two TR-PIV data sets and the two symmetric locations indicated by the grey circles. Each PSD estimate is separated by three decades. The dashed lines indicate the two frequencies shown in ($a$). The coordinates of the markers are ($b$) $x/D=0.3$ and $y/D=\pm 0.55$, ($c$) $x/D=0.5$ and $y/D=\pm 0.575$, ($d$) $x/D=0.7$ and $y/D=\pm 0.60$.}
+	\label{fig:p1spatial}
+\end{figure}
+%
+\begin{figure}
+	\centering
+	\includegraphics{rotfreqpow.png}
+	\caption{Spatial distribution of spectral power of the forcing
+		frequency. The two dotted lines in ($a$)
+		indicate the location of sampling in
+		figure~\ref{fig:vh_0p35} and figure~\ref{fig:vh_0p9}. The
+		dotted rectangle in ($c$) indicates the spatial domain of
+		figure~\ref{fig:f21snapshotzoom_avg}.}
+	\label{fig:rotfreqpow}
+\end{figure}
+%
+
+In an effort to link the effect of forcing observed in the power
+spectra to any changes in the wake structures, the evolution of
+vortical structures near separation was tracked over time.
+Figure~\ref{fig:vh_0p35} shows contours of both the out-of-plane
+vorticity component, \wz~$=\omega_zD/U$, and vortex boundaries
+identified using the \gtwo~criterion \citep{graftieaux2001} at
+$x/D=0.35$ (location shown in figure~\ref{fig:rotfreqpow}($a$)). For
+the natural response, vortex structures can be observed convecting
+past $x/D=0.35$ at the high-mode instability frequency. It is worth
+noting once more, that the TR-PIV provides a `cut' through the
+strongly three-dimensional sphere wake and that positive and negative
+regions of rotation indicated in figure~\ref{fig:vh_0p35} are unlikely
+to be separate \js{ or unconnected?} structures. \citet{Yun2006} showed that for a fixed
+sphere, without rotation at a similar Reynolds number
+($1\times10^4$), vortex rings shed from the sphere with the central
+axis of the ring initially parallel to the free-stream flow. From
+figure~\ref{fig:vh_0p35}($a$) \js{the unperturbed case} the phase between regions of positive
+and negative rotation convecting past $x/D=0.35$ appears intermittent.
+
+The shedding of periodic vortex structures remains visible for all
+three forcing conditions implemented at $\Ustar=15$
+(figure~\ref{fig:vh_0p35}). For $\freqrat=21$ and
+$\freqrat=26$, distinct structures shedding at the imposed forcing
+frequency can be observed. There is no indication that coherent
+structures are shedding at the natural high-mode instability
+frequency, as observed for the natural response. This indicates that
+the high-mode instability in the wake is suppressed by the forcing. For $\freqrat=16$ however, the wake is less periodic,
+structures form at both the forcing frequency and the natural
+high-mode instability frequency. This suggests that the
+high-mode instability is only intermittently suppressed by the forcing
+for $\freqrat=16$. For
+$\freqrat=21$ and $\freqrat=26$, where structures are consistently
+shed at the imposed forcing frequency, it can be seen from
+figure~\ref{fig:vh_0p35} that regions of positive and negative
+rotation are consistently convecting past $x/D=0.35$ alternately on either side
+of the sphere. Lastly, for $\freqrat=21$ and $\freqrat=26$ in particular, it is apparent that the structures shed
+are significantly larger than for the natural response.
+%
+\begin{figure}
+	\centering
+	\includegraphics{vh_0p35.png}
+	\caption{Spatio-temporal distribution of ($a-d$) \gtwo~and
+		($e-h$) \wz~at $x/D=0.35$ (location shown in
+		figure~\ref{fig:rotfreqpow}($a$)). ($a,e$)
+		$\freqrat=0$, ($b,f$) $\freqrat=16$, ($c,g$)
+		$\freqrat=21$, ($d,h$) $\freqrat=26$. Single level
+		contours of $\gtwo= \pm 2/\pi$ are shown. Contour limits of
+		\wz~are [-0.6, 0.6]. Blue contours show clockwise and red contours show anti-clockwise \wz~and \gtwo.}
+	\label{fig:vh_0p35}
+\end{figure}
+%
+
+Further downstream at $x/D=0.9$, the spatio-temporal plots of \gtwo~still show periodic structures convecting downstream, albeit less distinctly (figure~\ref{fig:vh_0p9}). For the natural
+response, structures around the sub-harmonic of the
+high-mode instability are visible. This observation concurs with the
+the spatial distribution of the power spectra shown in
+figure~\ref{fig:p1spatial} and suggests that vortices are pairing. Vortex pairing in the wake of a sphere has been observed both at lower and higher Reynolds numbers previously \citep[e.g.,][]{Rodriguez2011,Bakic2006}. With imposed rotation, distinct vortex structures can be seen convecting
+downstream periodically at the forcing frequency. Interestingly, for $\freqrat=16$ the forcing
+frequency has now become more evident, whilst for $\freqrat=26$ the
+structures have become less periodic. It appears that for
+$\freqrat=16$, although the high-mode instability was only
+intermittently locking to the forcing frequency at $x/D=0.35$, the
+natural process by which the dominant frequency is reduced to the
+sub-harmonic still occurs here and by $x/D=0.9$, more structures are
+visible at a wave length close to the forcing frequency. Results for $\freqrat=10$, not shown here, indicate that no lock-on behaviour occurs for the lower forcing frequency.
+ 
+
+%
+\begin{figure}
+	\centering
+	\includegraphics{vh_0p9.png}
+	\caption{Spatio-temporal distribution of ($a-d$) \gtwo~ and
+		($e-h$) \wz~at $x/D=0.9$ (location shown in
+		figure~\ref{fig:rotfreqpow}($a$)). ($a,e$)
+		$\freqrat=0$, ($b,f$) $\freqrat=16$, ($c,g$)
+		$\freqrat=21$, ($d,h$) $\freqrat=26$. Single level
+		contours of $\gtwo= \pm 2/\pi$ are shown. Contour limits of
+		\wz~are [-0.6, 0.6]. Blue contours show clockwise and red contours show anti-clockwise \wz~and \gtwo.}
+	\label{fig:vh_0p9}
+\end{figure}
+%
+
+To indicate of the phase of the cross-stream velocity
+across the spatial domain a technique similar to spectral proper orthogonal decomposition (SPOD) was used. SPOD is a space-time formulation of proper
+orthogonal decomposition (POD), where the analysis is conducted on
+data in the frequency domain. \citet{Towne2018} provide a thorough
+description of the technique. Here, the following process was conducted for each control condition. Using two data-sets, the velocity at each spatial location was first decomposed into a series of Hanning windows. The fast Fourier transform of the combined set of windowed data was then determined. Lastly, a singular value
+decomposition was used on the frequency-domain data. This technique provides a
+series of modes that oscillate at a single frequency. As for spatial-
+only POD, the first mode provides the best first-order
+reconstruction of the flow field. Each subsequent mode accounts for
+progressively less variance in the data. Here, the first mode
+accounted for 31\% of the variance for the natural response, and the majority of variance for the three imposed control conditions: 78\% for $\freqrat=16$,
+75\% for $\freqrat=21$, and 62\% for $\freqrat=26$. An indication of the dominant phase distribution of the cross-stream velocity across the spatial domain is evident in the phase reconstructed from the Fourier coefficients of the first mode as shown in figure~\ref{fig:phase}. Since for the three imposed control conditions the majority of variance is contained in the first mode, the reconstruction should provide a good indication of the spatial phase distribution. A comparison of the spatial phase modes obtained for the flow structures observed in the raw velocity fields was made to ensure
+that the phase indeed exemplifies the actual flow structures.
+
+Figure~\ref{fig:phase} shows the phase distribution of the cross-stream velocity for the sub-harmonic
+of the high-mode instability for the natural response, and for the
+imposed forcing frequency for the three control conditions. In addition to
+colour contours depicting phase, the
+transparency across the spatial domain was set based on the spectral
+power of the depicted frequency. The phase maps indicate that the vortex
+structures on either side of the shear layer remain close to \ang{180} out of phase for $\freqrat=21$ and
+$\freqrat=26$ up to $x/D\approx1.2$, whereafter the phase becomes less
+distinct. For $\freqrat=16$, the dominant mode of the phase is closer
+to \ang{90} between either side of the shear layer. For
+the natural response, whilst the phase between either side of the shear layer appears to be approximately \ang{180}, there is significantly less energy associated with the first mode indicating that there is a less stationary
+coherent phase pattern.
+%
+\begin{figure}
+	\centering
+	\includegraphics{Phase.png} %PIV Computer
+	\caption{Phase of the first mode for: ($a$)
+		$St=1.93$; ($b$) $St=1.07$;
+		($c$) $St=1.40$; and ($d$)
+		$St=1.74$. Transparency is set based on the spectral power of the frequency.}
+	\label{fig:phase}
+\end{figure}
+%
+
+\subsubsection{Phase-averaged wake and comparison to circular cylinder geometry}
+For $\freqrat=21$, it was observed that the generation of coherent structures in the shear layer is locked to the forcing frequency, with a structure shedding
+each rotatory oscillation cycle. In an attempt to reveal the process
+by which these structures are generated and shed downstream, phased
+averaged particle image velocity (PIV) over the spatial region near separation on one side of the sphere (region shown in
+figure~\ref{fig:rotfreqpow}($c$)) is
+analysed (figure~\ref{fig:f21snapshotzoom_avg}). For a rotary
+oscillating circular cylinder, \citet{Shiels2001} examined the
+vorticity generation and subsequent shedding of vortex structures. Their two-dimensional computational simulations were conducted
+at $Re=1.5 \times 10^4$, where it was noted that the flow would be
+three dimensional. However, the simulations appear to provide a
+good representation of the critical flow physics in the boundary layer
+and near wake. Clearly there are significant differences
+between the two studies, especially in their not modelling  the three-dimensional effects
+and the fact that, here, the high frequency oscillations are
+predominantly interacting with small-scale shear-layer structures as
+opposed to large-scale wake structures. However, there appear to be
+similarities in the generation process of the vortex structures. \citet{Shiels2001} noted that the
+generation and subsequent shedding of a vortex structure occurs at a
+counter-intuitive time in the cylinder oscillation cycle. They
+observed that a vortex structure is generated and separates from the
+cylinder on the side of the cylinder that is moving with the
+free-stream flow. This process was attributed to the transient effects
+of the rotary oscillations combined with advection effects, causing
+the existence of opposite-signed vorticity layers near the cylinder
+wall. Likewise, here for a fixed sphere, it appears that a vortex
+structure is primarily generated and separates from the sphere during
+the phase of oscillation where that side of the sphere is moving with
+the free-stream flow (figure~\ref{fig:f21snapshotzoom_avg}($a-c$)). 
+\js{Of course this will affect vorticity generation as well. Given that
+the acceleration of a surface relative to the fluid generates vorticity, as per 
+Morton's paper, then there are significant differences in when vorticity of either
+sign is being created over the period of the oscillation}
+Unlike for the circular cylinder though, there is minimal variation in the
+location of separation over an oscillation cycle and there does not
+appear to be the generation of a multipole vortex structure. Rather,
+during the phase of oscillation when the side of the sphere is moving
+against the free-stream, it appears that flow is drawn back towards
+the separation point from the re-circulation region, further
+strengthening the recently generated vortex and aiding its liftoff
+from the surface and convection downstream
+(figure~\ref{fig:f21snapshotzoom_avg}($d-a$)). Where the high-mode instability locks to the forcing frequency, this
+pattern is highly periodic and explains why the vortex structures emanating
+from the shear layer shed out of phase on either side of the sphere as
+the sphere oscillates. Lastly, the equatorial plane phase averaged PIV presented here
+shows the maximum tangential acceleration between the sphere and
+fluid. Moving away from the equatorial plane, the tangential
+acceleration decreases, and likely the associated generation of
+vorticity along with it. \js{As per the note above - reference to Morton's paper may be appropriate.}
+
+Figure~\ref{fig:f21snapshotzoom_avg} also highlights that with imposed
+rotation, vortices are generated by a different mechanism than for the
+natural response. For the natural response, a Kelvin-Helmholtz like
+instability results in the growth of disturbances, in an initially
+laminar shear layer, that results in the formation and roll-up of distinct
+vortex structures some distance downstream of separation. With imposed
+control, the oscillatory tangential acceleration between the body and
+fluid results in the generation of vortex structures near separation very close to the body.
+%
+\begin{figure}
+	\centering
+	\includegraphics{f21snapshotzoom_avg_warrow.png}
+	\caption{Phase averaged vorticity and \gtwo~for $\freqrat=21$
+		at $\Ustar=15$. ($a$) $t/T=0$, ($b$) $t/T=0.25$, ($c$)
+		$t/T=0.5$, ($d$) $t/T=0.75$. The reduced spatial domain
+		shown here is indicated in figure~\ref{fig:rotfreqpow}($c$).
+		Black lines show contours of $\gtwo= 2/\pi$. Colour contours show \wz~, the limits are [-0.6, 0.6].  Blue contours show clockwise and red contours show anti-clockwise \wz. The vertical orange line on the sphere
+		indicates $\theta = \ang{0}$ and the white lines show phase averaged
+		$\theta$.}
+	\label{fig:f21snapshotzoom_avg}
+\end{figure}
+%
+
+While the imposed rotary oscillations significantly alter
+the characteristics of the high-mode instability, it has been shown
+that in the case of an elastically mounted sphere, the large-scale,
+low-mode instability primarily produces the force that
+sustains VIV. At the furthest downstream position ($x/D=1.5$), albeit still
+relatively close to the sphere, in the wake centre ($y/D=0$) the
+low-mode instability frequency is discernible for all conditions
+examined. The spatial distribution does not change significantly with imposed
+rotation. As discussed in \S~\ref{sec:Intro}, \citet{Yun2006} proposed that the large-scale
+waviness of the wake (i.e., low-mode instability) is formed by a
+periodic tilting of the shear-layer vortices (i.e., high-mode
+instability) due to differing convection velocities around the sphere.
+Here, it would seem that given the lock-on of the shear layer
+vortices to the imposed rotation, that the natural tilting of the
+vortices would be suppressed leading to a suppression of the large-scale wake
+waviness. From analysis not shown here, with imposed rotation, the low-mode instability was indeed slightly suppressed. In the current literature, a thorough explanation of the relationship, if any, between the high- and low-mode instabilities in the wake of a fixed, stationary sphere remains elusive. \js{Do you want to contrast this with the cylinder, where there has been considerable work done on the relationship - from Bloor to Thompson \& Hourigan} Clearly, the addition of imposed rotation has not simplified the matter, with no obvious pattern emerging unlike for the high-mode instability. Nonetheless, the relationship between the two instabilities will be discussed further in \S~\ref{sec:Discussion}.
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics{p1spatial_LM_ontop.png}
+%	\caption{($a$) PSD estimate of cross-stream velocity, averaged over
+%          two TR-PIV data sets at $P_4$ (shown in ($b$)). Dashed line shows the low-mode instability for the natural response. ($b$) The spatial
+%          distribution of spectral power for $St=0.2$ for the natural response.}
+%	\label{fig:p1spatial_LM}
+%\end{figure}
+%%
+
+In this section, an examination of a few select control conditions (i.e., $\freqrat=16$, $\freqrat=21$, and $\freqrat=26$) for a fixed sphere
+at a Reynolds number equivalent to an elastically mounted sphere in
+the mode III transition regime ($\Ustar=15$) was conducted. A correlation between
+VIV suppression and a suppression of the high-mode instability and associated lock-on of shear-layer structures to the
+imposed rotary oscillations was shown. To confirm that the lock-on
+behaviour occurs when the mounting is changed to an elastic configuration, we now examine a sphere undergoing VIV.
+
+\subsection{Elastically mounted sphere} \label{sec:free}%
+%With the high-mode instability likely largely
+%unaffected by the elastic mounting and the low-mode instability locked
+%to the natural frequency of the system, the optimal rotation frequency
+%is much closer to the high-mode instability in the mode II and mode
+%III transition regimes. As such, it is conjectured that the rotary
+%oscillations are likely interacting with the high-mode, small-scale
+%instability close to the sphere in a manner that, in-turn, affects the
+%formation of the larger-scale wake structures that sustain vibration.
+
+%%%%%
+
+Less work has been conducted on the presence of the high-mode
+instability for an elastically mounted sphere. \citet{vanHout2013}
+used TR-PIV to investigate the near-wake of a tethered sphere over the
+range $493\leqslant Re\leqslant2218$. At the highest Reynolds number
+investigated, they observed a weak, broad peak in the power spectrum
+close to the high-mode instability observed for a fixed sphere. Due to
+the lower Reynolds number investigated (i.e., approximately an order
+of magnitude lower than the results examined here for $\Ustar=15$),
+they did not observe the shedding of distinct periodic structures
+close to the sphere, like those observed for the fixed sphere in
+section~\ref{sec:fixed} and that might be expected with elastic
+mounting in the mode III transition regime.
+
+Here we again focus on results for $\Ustar=15$, where the vibration response was suppressed, and examine imposed forcing for $\freqrat=16$, $\freqrat=21$, and $\freqrat=26$. 
+Figure~\ref{fig:freef0f21snapshot} shows instantaneous snapshots of velocity vectors, along with out-of-plane vorticity and \gtwo~contours over a single vibration cycle for both the natural response and $\freqrat=21$.  
+This figure highlights the difficulty in comparing the wake between control conditions for an elastically mounted body.  
+Specifically, whilst similarities in small-scale wake structures are evident, the difference in vibration amplitude significantly alters the overarching wake structure in relation to sphere position.  
+Importantly though for the comparison between fixed and elastic mounting, with imposed rotation small-scale structures do appear to shed periodically from the sphere, with similar size and frequency to the equivalent fixed configuration.  
+%
+\begin{figure}
+	\centering
+	\includegraphics{freef0f21snapshot.png}
+	\caption{Instantaneous snapshots of velocity vectors (every
+		fifth vector shown for clarity), vorticity colour contours,
+		and \gtwo~line contours for ($a$) $\freqrat=0$, and ($b$)
+		$\freqrat=21$. Blue (clockwise) and red
+		(anti-clockwise) lines show contours of $\gtwo= \pm 2/\pi$.
+		Colour contour limits of \wz~are [-0.7, 0.7]. For ($b$), the
+		vertical orange line on the sphere indicates $\theta = \ang{0}$ and the
+		white lines show phase averaged $\theta$.}
+	\label{fig:freef0f21snapshot}
+\end{figure}
+%
+
+Figure~\ref{fig:vh_free_0p55} shows the evolution of \gtwo~and \wz~past $x/D=0.55$. 
+As for the fixed sphere, the high-mode instability appears suppressed for both $\freqrat=21$ and $\freqrat=26$, particularly on the trailing side of the sphere (i.e., between approximately $0-2$ s for $\freqrat=21$). 
+Once more, the high-mode instability appears to be intermittently suppressed for $\freqrat=16$. 
+\js{I found this a bit difficult to interpret. I can see that the red contours (-ve) are smaller in amplitude than the blue (+ve). Also, that the low frequency has less effect but it is hard to discern the intermittency for the $f_r = 16$ case. I there a way of pointing the reader in the right direction?}
+Unlike the natural response (figure~\ref{fig:vh_free_0p55}($a,e$)), with imposed rotatory oscillations, shear-layer structures convect past $x/D=0.55$ relatively consistently over the entire vibration cycle. 
+While clearly interesting, it is difficult to ascertain whether distinct structures are more observable where suppression occurs because of the inherent effect of the rotary oscillations on the flow, or merely because the vibration is more suppressed and as such, the wake more resembles that of the fixed sphere.
+%
+\begin{figure}
+	\centering
+	\includegraphics{vh_free_0p55.png}
+	\caption{Spatio-temporal distribution of ($a-d$) \gtwo~ and
+		($e-h$) \wz~at $x/D=0.55$. ($a,e$) $\freqrat=0$, ($b,f$)
+		$\freqrat=16$, ($c,g$) $\freqrat=21$, ($d,h$)
+		$\freqrat=26$. Single level contours of $\gtwo= \pm 2/\pi$
+		are shown. Contour limits of \wz~are [-0.6, 0.6]. Blue contours show clockwise and red contours show anti-clockwise \wz~and \gtwo.}
+	\label{fig:vh_free_0p55}
+\end{figure}
+%%
+%\begin{figure}
+%	\centering%
+%	\includegraphics{vh_free_1p2.png}
+%	\caption{Spatio-temporal distribution of ($a-d$) \gtwo~ and ($e-h$) \wz~at $x/D=1.2$. ($a,e$) $\freqrat=0$, ($b,f$) $\freqrat=16$, ($c,g$) $\freqrat=21$, ($d,h$) $\freqrat=26$. Single level contours of $\gtwo= \pm 2/\pi$ are shown. Contour limits of \wz~are [-0.6, 0.6]. Blue contours show clockwise and red contours show anti-clockwise \wz~and \gtwo.}
+%	\label{fig:vh_free_1p2}
+%\end{figure}
+%%
+
+To quantify the frequency and periodicity of the shear-layer shedding in the wake of an elastically mounted sphere, a technique similar to that used by \citet{vanHout2013} was employed to track the shear-layer position. 
+The $y$-direction position of maximum out-of-plane vorticity at $x/D=0.6$ was determined for each time-step where $\wz>0.4$.
+Where $\wz<0.4$, the shear-layer position was interpolated. 
+A 15 Hz low-pass filter was then applied to the tracked shear-layer position. 
+The cross-stream velocity at the tracked shear-layer position at each time-step was then used to obtain an estimate of the power spectrum in the moving shear layer. 
+Using \gtwo~to track the shear layer position gave similar results. 
+%%
+%\begin{figure}
+%	\centering
+%	\includegraphics{psdmethod.png}
+%	\caption{Example of shear layer tracking for $\freqrat=21$.
+%          Black line indicates tracked shear layer position used for
+%          PSD estimate.}
+%	\label{fig:psdmethod}
+%\end{figure}
+%%
+
+Figure~\ref{fig:psdtrackontop} shows the resultant power spectra at $x/D=0.6$. 
+For the natural response, a peak in the power spectrum is observed at the same frequency as the high-mode instability identified for the fixed sphere. 
+A second less distinct peak, slightly higher than the sub-harmonic of the high-mode instability can also be observed. 
+For $\freqrat=16$ and $\freqrat=21$, a strong peak at the forcing frequency is visible. 
+For $\freqrat=26$ on the other hand, there is no strong peak evident in the spectrum at the forcing frequency. 
+This observation is in line with the results from figure~\ref{fig:p1spatial} where there was a larger reduction in the spectral power of the forcing frequency for $\freqrat=26$ between $x/D=0.3$ and $x/D=0.7$ than for the other control conditions. 
+From figure~\ref{fig:psdtrackontop}($b$), it is evident that forcing at $\freqrat=21$ results in the most distinct spectral peak, suggesting that periodic shedding from the shear layer is strongest for this control condition.
+%
+\begin{figure}
+	\centering
+	\includegraphics{psdtrackontopsbs.png}
+	\caption{PSD estimate of cross-stream velocity in tracked shear layer
+		at $x/D=0.6$. ($a$) Each PSD estimate is separated by three decades.
+		($b$) No separation between PSD estimates. Blue dashed
+		lines shows the high-mode instability and its
+		sub-harmonic for the natural response of the fixed sphere.}
+	\label{fig:psdtrackontop}
+\end{figure}
+%
+
+TR-PIV acquired at $\Ustar=12$ and $\Ustar=18$ indicated that lock-on of vortex shedding in the shear layer to the forcing frequency also occurred at these conditions.
+
+It was shown in section~\ref{sec:fixed} that while the high-mode instability is dominant immediately downstream of separation, the sub-harmonic of the instability quickly dominates downstream. 
+While it was difficult to ascertain whether the same behaviour happens for an elastically mounted sphere, evidence of distinct shear-layer structures persisting to at least $x/D=1.2$ were observed when the lock-on phenomenon occurred. 
+With elastic mounting, it is difficult to determine the effect of forcing on the low-mode instability due to the coupled sphere movement and lock-in behaviour. 
+Some further discussion on this is presented in \S~\ref{sec:Discussion}. 
+
+In summary, as for the fixed sphere, a suppression of the high-mode instability and a lock-on of vortex shedding to the imposed forcing was observed for control conditions where VIV is suppressed. 
+In particular, lock-on, and suppression of the natural high-mode instability, was observed for forcing frequencies slightly lower than the sub-harmonic of the high-mode instability. 
+Forcing at frequencies close to and lower than the high-mode instability sub-harmonic appeared to result in the generation of vortices which persisted the furthest downstream resulting in the greatest influence on the larger-scale lift-generating streamwise vortex structures.  
+
+\subsection{Discussion on the effects of imposed forcing on wake instabilities} \label{sec:Discussion}
+With the combination of a highly three-dimensional wake, transverse body vibration, and imposed rotary oscillations, it is difficult to isolate and analyse particular aspects of the flow for the elastically mounted, rotary oscillating sphere. 
+To reduce this complexity, an effort was made to study the effects of forcing on a fixed sphere. 
+This enabled various characteristics of the spatial dynamics and flow instabilities in the equatorial plane to be determined. 
+To understand the effects of the strong three-dimensional aspects of the flow and the characteristics of the instabilities observed in relation to existing literature, we found it valuable to compare the results obtained here to those found for a two-dimensional circular cylinder.
+
+As discussed in \S~\ref{sec:Intro}, low- and high-mode instabilities exist in the sphere wake. 
+\citet{Kim1988} found a scaling between the high-mode ($f_{HM}$) and low-mode ($f_{LM}$) instabilities of approximately $f_{HM}/f_{LM} \propto Re^{0.75}$ over the range $10^3 < Re < 10^4$ and approximately $f_{HM}/f_{LM} \propto Re^{0.66}$ over the range $10^4 < Re < 10^5$. 
+Comparing these results to the relationship identified between the Bloor-Gerrard shear-layer instability ($f_{SL}$) and K\'arm\'an vortex shedding ($f_K$) in the wake of a circular cylinder reveals interesting similarities. 
+\citet{Thompson2005} proposed that the two instabilities observed in the circular cylinder wake, scaled as; $f_{SL}/f_{K} \propto Re^{0.57}$ over the range $1.5\times10^3 < Re < 5\times10^3$, and $f_{SL}/f_{K} \propto Re^{0.52}$ over the range $1\times10^4 < Re < 5\times10^4$. 
+The similarity between the Reynolds number ranges for the two geometries is interesting as is that both the magnitude of scaling and percentage reduction in scaling from the low to high Reynolds number ranges are also similar (i.e., 9\% reduction for the circular cylinder and 12\% reduction for the sphere). 
+\citet{Thompson2005} presented the distinct reduction of the wake formation length between $Re=4\times 10^3$ and $Re=1\times 10^4$ and the associated enhanced interaction between the K\'arm\'an vortices and the shear layers at high Reynolds numbers as a reason for the change in scaling between the instabilities. 
+Similarly, for the sphere a striking change in formation length can be seen between $Re=3.7\times 10^3$ and $Re=1\times 10^4$ in the large eddy simulations of \citet{Yun2006} (this change in formation length has also been observed over similar Reynolds number ranges in other studies such as \citet{Jang2007}). 
+They found that the re-circulation bubble approximately halves in size between $Re=3.7\times 10^3$ and $Re=1\times 10^4$. 
+Therefore, it seems reasonable to postulate that, as suggested by \citet{Thompson2005} for the circular cylinder, above $Re\approx 1\times10^4$, there is enhanced interaction between the low- and high-mode instabilities of the sphere. 
+Here, vibration suppression was observed for $\Ustar\geq10$ where $Re\geq1.3\times10^4$.
+
+\citet{Tokumaru1991} examined the effect of rotary oscillations on the wake of a fixed circular cylinder over a broad forcing frequency range at $Re=1.5\times10^4$. 
+They identified four wake modes. 
+The flow visualisations they presented are for rotation amplitudes at least an order of magnitude larger than implemented here, and the majority are closer to two orders of magnitude larger. 
+So it is not expected that the rotations imposed here will have the same large-scale effects seen by \citet{Tokumaru1991}. 
+Yet, similarities are again evident between the two geometries. 
+The forcing frequencies for which vibration suppression was found in the mode III transition regime in this study, fall into the mode III wake regime of \citet{Tokumaru1991}. 
+In this regime for the circular cylinder, the imposed oscillations suppress both the shear-layer and K\'arm\'an instabilities, with vortex structures only being shed at the forcing frequencye. 
+The wake is also significantly narrowed. 
+For the sphere, likely due to the lower rotation amplitudes imposed rather than a global modification of the wake, only localised suppression of the high-mode instability in the shear layer was observed. 
+Yet a narrowing of the wake, most significant for the most effective forcing frequency was observed. 
+In addition to the similarities between wake width, it appears that like for the circular cylinder, as a result of the imposed forcing the onset of the low-mode instability is delayed. 
+
+\citet{Tokumaru1991} also conducted flow visualisation at a lower Reynolds number of $Re=3.3\times10^3$. 
+They found very similar results, but noted that the effects at higher forcing frequencies were more pronounced. 
+\citet{Shiels2001} also found the effects of imposed forcing strongly Reynolds number dependent over the range investigated here. 
+Evidently, the variation in interaction between the K\'arm\'an and shear-layer instabilities described by \citet{Thompson2005}, over the Reynolds number range used here, and by \citet{Tokumaru1991} and \citet{Shiels2001}, affects the ability of the imposed rotary oscillations to influence the wake at lower Reynolds numbers. 
+
+In addition to the effect of forcing on the natural instabilities of the sphere wake, the mechanisms leading to sustained vibration are also likely play an important role in vibration suppression. 
+\citet{Govardhan2005} identified mode III as a `movement-induced excitation' mode, whereby initial perturbations of the sphere lead to the generation of self-sustaining vortex forces. 
+Any disruption to the timing of vortex generation or small disturbances to sphere displacement are more likely to lead to significant vibration suppression in this regime. 
+The mode III transition regime, where vibration was suppressed in this study, is the beginning of the movement-induced excitation regime for the sphere mounted with 1DOF transverse to the oncoming flow.
+
+Drawing together these comparisons to past work on the instabilities and forcing of a circular cylinder along with the results analysed in this study, some likely causes of vibration suppression in the mode III transition regime can be identified. 
+It is clear from both the fixed and elastically mounted results that where suppression of vibration was observed the imposed rotation generates strong persistent vortex structures that shed at the forcing frequency and predominately convect downstream in the shear layer. 
+Where this lock-on occurs, the excitation is strong enough to bypass the formation and pairing of the initial shear-layer vortices (high-mode instability) with only vortex structures convecting at the forcing frequency being observed. 
+The vortex structures generated are larger and persist further downstream than for the natural response, with the forcing frequency remaining dominant over a large spatial domain. 
+With fixed mounting at least, the wake narrows with imposed forcing. 
+Furthermore, there is significant variation in the phase between the sphere displacement and vortex force acting on the sphere for the most effective forcing frequency. 
+It appears that with imposed oscillations, the vortex structures persist far enough downstream to interfere with the large-scale vortex-shedding process (low-mode instability). 
+As mode III vibration is due to a movement-induced instability and relies on the the natural interaction between the sphere and large-scale vortex generation, this disturbance of large-scale shedding appears to disrupt the movement-induced vibration mechanism, leading to significant vibration suppression.
+
+The TR-PIV results along with the comparison to the circular cylinder suggest that, in addition to the imposed oscillation frequency and amplitude, both Reynolds number and vibration mode are important in determining the vibration response. 
+While it is likely to always be difficult to suppress vibration in the mode I and mode II regimes, in this study the difficulty is compounded by the low Reynolds number ($Re<1\times10^4$) and associated reduced interaction between the high- and low-mode instabilities, which reduces the control effectiveness in the mode I and the beginning of mode II regimes. 
+
+\section{Conclusions}
+\label{sec:concl}
+\js{Edited up to here - Conclusions not done, as per discussion with Tom}
+
+High-frequency low-amplitude rotary oscillations have been imposed on
+an elastically mounted sphere. It was found that, with careful
+frequency selection, it was possible to substantially suppress VIV in
+the mode II and mode III transition regimes with rotation ratios as
+low as $\velrat=0.1$. At $\Ustar=18$, the highest reduced velocity
+investigated, a reduction in the amplitude response of up to 84\% for
+a rotation ratio of only $\velrat=0.1$ was observed. Across the
+parameter space investigated, no appreciable deviation in the
+vibration frequency from the natural response occurred. In regard to
+the amplitude of oscillations, it was found that no further
+significant suppression of the vibration occurred for rotation ratios
+above $\velrat=0.3$, at least up to the maximum rotation ratio tested
+($\velrat=1$). Above $\velrat=0.3$, vibration suppression was not
+sensitive to rotation frequency.
+
+To examine the effect of the imposed rotation at a low rotation ratio
+($\velrat=0.1$) on the wake dynamics, three forcing conditions, in
+addition to the natural response, were studied in detail for
+$\Ustar=15$ for an elastically mounted sphere as well as a fixed
+sphere at an equivalent Reynolds number. For the natural response, it
+was found that while the high-mode instability was dominant
+immediately down-stream of separation, the sub-harmonic of the
+instability quickly becomes dominant. The
+high-mode instability could be suppressed by imposed rotation, with
+shedding of distinct, periodic vortex structures at the forcing
+frequency evident. Moving downstream, no reduction in dominant
+frequency was observed with imposed rotation, unlike the natural
+response. While a direct connection between the altered high-mode
+instability and the large-scale motions of the wake was not formally
+established, it appears that with imposed oscillations, the vortex
+structures generated persist far enough downstream to interfere with
+the large-scale vortex-shedding process (low-mode instability), which
+in-turn disrupts the movement-induced vibration mechanism leading to
+significant vibration suppression. Where the vibration was suppressed,
+significant variation in the instantaneous phase between the sphere
+displacement and vortex force acting on the sphere was also observed.
+
+This investigation shows promise for suppression of VIV of
+three-dimensional geometries through sinusoidal rotation at
+frequencies many times higher than the natural frequency of the system
+and at lower amplitudes than implemented in previous studies. It also
+demonstrates that VIV may be suppressed through direct interaction
+with the high-mode instability as opposed to the low-mode instability
+as performed in previous studies. Due to limitations of the
+servo-motor used, it was not possible to impose rotary oscillations at
+the expected shear-layer instability frequency when testing at high
+reduced velocities. It may prove interesting to investigate the effect
+of rotary oscillations at frequencies at and above the initial
+shear-layer instability, at the reduced velocities where suppression
+of the vibration was observed.
+
+\section*{Acknowledgements}
+TM acknowledges the financial support of an Australian Government
+Research Training Program Scholarship. We would also like to
+acknowledge partial support and maintenance of the experimental
+facility through ARC discovery grants DP150102879, DP170100275, and
+DP190103388.
+
+\bibliography{jfs-lib}
+
+\end{document}

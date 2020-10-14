@@ -1,0 +1,326 @@
+\begin{thebibliography}{39}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Williamson and Govardhan(1997)}]{Williamson1997}
+\bibinfo{author}{C.~H.~K. Williamson}, \bibinfo{author}{R.~Govardhan},
+\newblock \bibinfo{title}{Dynamics and forcing of a tethered sphere in a fluid
+  flow},
+\newblock \bibinfo{journal}{J. Fluids Struct.} \bibinfo{volume}{11}
+  (\bibinfo{year}{1997}) \bibinfo{pages}{293--305}.
+%Type = Article
+\bibitem[{Govardhan and Williamson(1997)}]{Govardhan1997}
+\bibinfo{author}{R.~Govardhan}, \bibinfo{author}{C.~H.~K. Williamson},
+\newblock \bibinfo{title}{Vortex-induced motions of a tethered sphere},
+\newblock \bibinfo{journal}{J. Wind Eng. Ind. Aerod.} \bibinfo{volume}{69}
+  (\bibinfo{year}{1997}) \bibinfo{pages}{375--385}.
+%Type = Article
+\bibitem[{Jauvtis et~al.(2001)Jauvtis, Govardhan, and Williamson}]{Jauvtis2001}
+\bibinfo{author}{N.~Jauvtis}, \bibinfo{author}{R.~Govardhan},
+  \bibinfo{author}{C.~H.~K. Williamson},
+\newblock \bibinfo{title}{Multiple modes of vortex-induced vibration of a
+  sphere},
+\newblock \bibinfo{journal}{J. Fluids Struct.} \bibinfo{volume}{15}
+  (\bibinfo{year}{2001}) \bibinfo{pages}{555--563}.
+%Type = Article
+\bibitem[{Govardhan and Williamson(2005)}]{Govardhan2005}
+\bibinfo{author}{R.~N. Govardhan}, \bibinfo{author}{C.~H.~K. Williamson},
+\newblock \bibinfo{title}{Vortex-induced vibrations of a sphere},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{531}
+  (\bibinfo{year}{2005}) \bibinfo{pages}{11--47}.
+%Type = Article
+\bibitem[{van Hout et~al.(2010)van Hout, Krakovich, and Gottlieb}]{vanHout2010}
+\bibinfo{author}{R.~van Hout}, \bibinfo{author}{A.~Krakovich},
+  \bibinfo{author}{O.~Gottlieb},
+\newblock \bibinfo{title}{Time resolved measurements of vortex-induced
+  vibrations of a tethered sphere in uniform flow},
+\newblock \bibinfo{journal}{Phys. Fluids} \bibinfo{volume}{22}
+  (\bibinfo{year}{2010}) \bibinfo{pages}{087101}.
+%Type = Article
+\bibitem[{Behara et~al.(2011)Behara, Borazjani, and Sotiropoulos}]{Behara2011}
+\bibinfo{author}{S.~Behara}, \bibinfo{author}{I.~Borazjani},
+  \bibinfo{author}{F.~Sotiropoulos},
+\newblock \bibinfo{title}{Vortex-induced vibrations of an elastically mounted
+  sphere with three degrees of freedom at ${Re} = 300$: hysteresis and vortex
+  shedding modes},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{686}
+  (\bibinfo{year}{2011}) \bibinfo{pages}{426--450}.
+%Type = Article
+\bibitem[{Eshbal et~al.(2012)Eshbal, Krakovich, and van Hout}]{Eshbal2012}
+\bibinfo{author}{L.~Eshbal}, \bibinfo{author}{A.~Krakovich},
+  \bibinfo{author}{R.~van Hout},
+\newblock \bibinfo{title}{Time resolved measurements of vortex-induced
+  vibrations of a positively buoyant tethered sphere in uniform water flow},
+\newblock \bibinfo{journal}{J. Fluids Struct.} \bibinfo{volume}{35}
+  (\bibinfo{year}{2012}) \bibinfo{pages}{185--199}.
+%Type = Article
+\bibitem[{van Hout et~al.(2013)van Hout, Katz, and Greenblatt}]{vanHout2013}
+\bibinfo{author}{R.~van Hout}, \bibinfo{author}{A.~Katz},
+  \bibinfo{author}{D.~Greenblatt},
+\newblock \bibinfo{title}{Time-resolved particle image velocimetry measurements
+  of vortex and shear layer dynamics in the near wake of a tethered sphere},
+\newblock \bibinfo{journal}{Phys. Fluids} \bibinfo{volume}{25}
+  (\bibinfo{year}{2013}) \bibinfo{pages}{077102}.
+%Type = Article
+\bibitem[{Krakovich et~al.(2013)Krakovich, Eshbal, and van
+  Hout}]{Krakovich2013}
+\bibinfo{author}{A.~Krakovich}, \bibinfo{author}{L.~Eshbal},
+  \bibinfo{author}{R.~van Hout},
+\newblock \bibinfo{title}{Vortex dynamics and associated fluid forcing in the
+  near wake of a light and heavy tethered sphere in uniform flow},
+\newblock \bibinfo{journal}{Exp. Fluids} \bibinfo{volume}{54}
+  (\bibinfo{year}{2013}) \bibinfo{pages}{1615}.
+%Type = Article
+\bibitem[{Lee et~al.(2013)Lee, Hourigan, and Thompson}]{Lee2013}
+\bibinfo{author}{H.~Lee}, \bibinfo{author}{K.~Hourigan}, \bibinfo{author}{M.~C.
+  Thompson},
+\newblock \bibinfo{title}{Vortex-induced vibration of a neutrally buoyant
+  tethered sphere},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{719}
+  (\bibinfo{year}{2013}) \bibinfo{pages}{97--128}.
+%Type = Article
+\bibitem[{Behara and Sotiropoulos(2016)}]{Behara2016}
+\bibinfo{author}{S.~Behara}, \bibinfo{author}{F.~Sotiropoulos},
+\newblock \bibinfo{title}{Vortex-induced vibrations of an elastically mounted
+  sphere: The effects of {R}eynolds number and reduced velocity},
+\newblock \bibinfo{journal}{J. Fluids Struct.} \bibinfo{volume}{66}
+  (\bibinfo{year}{2016}) \bibinfo{pages}{54--68}.
+%Type = Article
+\bibitem[{Rajamuni et~al.(2018)Rajamuni, Thompson, and
+  Hourigan}]{Rajamuni2018a}
+\bibinfo{author}{M.~M. Rajamuni}, \bibinfo{author}{M.~C. Thompson},
+  \bibinfo{author}{K.~Hourigan},
+\newblock \bibinfo{title}{Transverse flow-induced vibrations of a sphere},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{837}
+  (\bibinfo{year}{2018}) \bibinfo{pages}{931--966}.
+%Type = Article
+\bibitem[{Sareen et~al.(2018)Sareen, Zhao, Sheridan, Hourigan, and
+  Thompson}]{Sareen2018c}
+\bibinfo{author}{A.~Sareen}, \bibinfo{author}{J.~Zhao},
+  \bibinfo{author}{J.~Sheridan}, \bibinfo{author}{K.~Hourigan},
+  \bibinfo{author}{M.~C. Thompson},
+\newblock \bibinfo{title}{Vortex-induced vibrations of a sphere close to a free
+  surface},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{846}
+  (\bibinfo{year}{2018}) \bibinfo{pages}{1023--1058}.
+%Type = Article
+\bibitem[{Eshbal et~al.(2019)Eshbal, Kovalev, Rinsky, Greenblatt, and van
+  Hout}]{Eshbal2019}
+\bibinfo{author}{L.~Eshbal}, \bibinfo{author}{D.~Kovalev},
+  \bibinfo{author}{V.~Rinsky}, \bibinfo{author}{D.~Greenblatt},
+  \bibinfo{author}{R.~van Hout},
+\newblock \bibinfo{title}{Tomo-{PIV} measurements in the wake of a tethered
+  sphere undergoing {VIV}},
+\newblock \bibinfo{journal}{J. Fluids Struct.} \bibinfo{volume}{89}
+  (\bibinfo{year}{2019}) \bibinfo{pages}{132--141}.
+%Type = Article
+\bibitem[{Bernitsas et~al.(2008)Bernitsas, Raghavan, Ben-Simon, and
+  Garcia}]{Bernitsas2008}
+\bibinfo{author}{M.~Bernitsas}, \bibinfo{author}{K.~Raghavan},
+  \bibinfo{author}{Y.~Ben-Simon}, \bibinfo{author}{E.~Garcia},
+\newblock \bibinfo{title}{{VIVACE} ({V}ortex {I}nduced {V}ibration {A}quatic
+  {C}lean {E}nergy): A new concept in generation of clean and renewable energy
+  from fluid flow},
+\newblock \bibinfo{journal}{J. Offshore Mech. Arct.} \bibinfo{volume}{130}
+  (\bibinfo{year}{2008}) \bibinfo{pages}{041101}.
+%Type = Article
+\bibitem[{Sareen et~al.(2018)Sareen, Zhao, Lo~Jacono, Sheridan, Hourigan, and
+  Thompson}]{Sareen2018}
+\bibinfo{author}{A.~Sareen}, \bibinfo{author}{J.~Zhao},
+  \bibinfo{author}{D.~Lo~Jacono}, \bibinfo{author}{J.~Sheridan},
+  \bibinfo{author}{K.~Hourigan}, \bibinfo{author}{M.~C. Thompson},
+\newblock \bibinfo{title}{Vortex-induced vibration of a rotating sphere},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{837}
+  (\bibinfo{year}{2018}) \bibinfo{pages}{258--292}.
+%Type = Article
+\bibitem[{van Hout et~al.(2013)van Hout, Katz, and Greenblatt}]{vanhout2012}
+\bibinfo{author}{R.~van Hout}, \bibinfo{author}{A.~Katz},
+  \bibinfo{author}{D.~Greenblatt},
+\newblock \bibinfo{title}{Acoustic control of vortex-induced vibrations of a
+  tethered sphere},
+\newblock \bibinfo{journal}{AIAA J.} \bibinfo{volume}{51}
+  (\bibinfo{year}{2013}) \bibinfo{pages}{754--757}.
+%Type = Article
+\bibitem[{Sareen et~al.(2018)Sareen, Zhao, Sheridan, Hourigan, and
+  Thompson}]{Sareen2018b}
+\bibinfo{author}{A.~Sareen}, \bibinfo{author}{J.~Zhao},
+  \bibinfo{author}{J.~Sheridan}, \bibinfo{author}{K.~Hourigan},
+  \bibinfo{author}{M.~C. Thompson},
+\newblock \bibinfo{title}{The effect of imposed rotary oscillation on
+  the{~}flow-induced vibration of a sphere},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{855}
+  (\bibinfo{year}{2018}) \bibinfo{pages}{703--735}.
+%Type = Article
+\bibitem[{Sareen et~al.(2019)Sareen, Zhao, Sheridan, Hourigan, and
+  Thompson}]{Sareen2019}
+\bibinfo{author}{A.~Sareen}, \bibinfo{author}{J.~Zhao},
+  \bibinfo{author}{J.~Sheridan}, \bibinfo{author}{K.~Hourigan},
+  \bibinfo{author}{M.~C. Thompson},
+\newblock \bibinfo{title}{Large amplitude cross-stream sphere vibration
+  generated by applied rotational oscillation},
+\newblock \bibinfo{journal}{J. Fluids and Struct.}  (\bibinfo{year}{2019}).
+%Type = Article
+\bibitem[{McQueen et~al.(2020)McQueen, Zhao, Sheridan, and
+  Thompson}]{McQueen2020}
+\bibinfo{author}{T.~McQueen}, \bibinfo{author}{J.~Zhao},
+  \bibinfo{author}{J.~Sheridan}, \bibinfo{author}{M.~C. Thompson},
+\newblock \bibinfo{title}{Feedback control of flow-induced vibration of a
+  sphere},
+\newblock \bibinfo{journal}{J. of Fluid Mech.} \bibinfo{volume}{889}
+  (\bibinfo{year}{2020}) \bibinfo{pages}{A30}.
+%Type = Article
+\bibitem[{Sakamoto and Haniu(1990)}]{Sakamoto1990}
+\bibinfo{author}{H.~Sakamoto}, \bibinfo{author}{H.~Haniu},
+\newblock \bibinfo{title}{A study on vortex shedding from spheres in a uniform
+  flow},
+\newblock \bibinfo{journal}{J. Fluids Eng.} \bibinfo{volume}{112}
+  (\bibinfo{year}{1990}) \bibinfo{pages}{386--392}.
+%Type = Article
+\bibitem[{Kim and Durbin(1988)}]{Kim1988}
+\bibinfo{author}{H.~J. Kim}, \bibinfo{author}{P.~A. Durbin},
+\newblock \bibinfo{title}{Observations of the frequencies in a sphere wake and
+  of drag increase by acoustic excitation},
+\newblock \bibinfo{journal}{Phys. Fluids} \bibinfo{volume}{31}
+  (\bibinfo{year}{1988}) \bibinfo{pages}{3260--3265}.
+%Type = Article
+\bibitem[{Jang and Lee(2007)}]{Jang2007}
+\bibinfo{author}{Y.~I. Jang}, \bibinfo{author}{S.~J. Lee},
+\newblock \bibinfo{title}{Visualization of turbulent flow around a sphere at
+  subcritical {R}eynolds numbers},
+\newblock \bibinfo{journal}{J. Visual. - Japan} \bibinfo{volume}{10}
+  (\bibinfo{year}{2007}) \bibinfo{pages}{359--366}.
+%Type = Article
+\bibitem[{Bakic et~al.(2006)Bakic, Schmid, and Stankovic}]{Bakic2006}
+\bibinfo{author}{V.~Bakic}, \bibinfo{author}{M.~Schmid},
+  \bibinfo{author}{B.~Stankovic},
+\newblock \bibinfo{title}{Experimental investigation of turbulent structures of
+  flow around a sphere},
+\newblock \bibinfo{journal}{Therm. Sci.} \bibinfo{volume}{10}
+  (\bibinfo{year}{2006}) \bibinfo{pages}{97--112}.
+%Type = Article
+\bibitem[{Rodriguez et~al.(2011)Rodriguez, Borell, Lehmkuhl, Perez~Segarra, and
+  Oliva}]{Rodriguez2011}
+\bibinfo{author}{I.~Rodriguez}, \bibinfo{author}{R.~Borell},
+  \bibinfo{author}{O.~Lehmkuhl}, \bibinfo{author}{C.~D. Perez~Segarra},
+  \bibinfo{author}{A.~Oliva},
+\newblock \bibinfo{title}{Direct numerical simulation of the flow over a sphere
+  at {R}e = 3700},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{679}
+  (\bibinfo{year}{2011}) \bibinfo{pages}{263--287}.
+%Type = Article
+\bibitem[{Yun et~al.(2006)Yun, Kim, and Choi}]{Yun2006}
+\bibinfo{author}{G.~Yun}, \bibinfo{author}{D.~Kim}, \bibinfo{author}{H.~Choi},
+\newblock \bibinfo{title}{Vortical structures behind a sphere at subcritical
+  {R}eynolds numbers},
+\newblock \bibinfo{journal}{Phys. Fluids} \bibinfo{volume}{18}
+  (\bibinfo{year}{2006}) \bibinfo{pages}{015102}.
+%Type = Article
+\bibitem[{Achenbach(1974)}]{Achenbach1974}
+\bibinfo{author}{E.~Achenbach},
+\newblock \bibinfo{title}{Vortex shedding from spheres},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{62}
+  (\bibinfo{year}{1974}) \bibinfo{pages}{209--221}.
+%Type = Article
+\bibitem[{Nemes et~al.(2012)Nemes, Zhao, Lo~Jacono, and Sheridan}]{Nemes2012}
+\bibinfo{author}{A.~Nemes}, \bibinfo{author}{J.~Zhao},
+  \bibinfo{author}{D.~Lo~Jacono}, \bibinfo{author}{J.~Sheridan},
+\newblock \bibinfo{title}{The interaction between flow-induced vibration
+  mechanisms of a square cylinder with varying angles of attack},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{710}
+  (\bibinfo{year}{2012}) \bibinfo{pages}{102--130}.
+%Type = Article
+\bibitem[{Zhao et~al.(2014)Zhao, Leontini, Lo~Jacono, and Sheridan}]{Zhao2014}
+\bibinfo{author}{J.~Zhao}, \bibinfo{author}{J.~Leontini},
+  \bibinfo{author}{D.~Lo~Jacono}, \bibinfo{author}{J.~Sheridan},
+\newblock \bibinfo{title}{Fluid-structure interaction of a square cylinder at
+  different angles of attack},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{747}
+  (\bibinfo{year}{2014}) \bibinfo{pages}{688--721}.
+%Type = Article
+\bibitem[{Zhao et~al.(2018)Zhao, Lo~Jacono, Sheridan, Hourigan, and
+  Thompson}]{Zhao2018}
+\bibinfo{author}{J.~Zhao}, \bibinfo{author}{D.~Lo~Jacono},
+  \bibinfo{author}{J.~Sheridan}, \bibinfo{author}{K.~Hourigan},
+  \bibinfo{author}{M.~C. Thompson},
+\newblock \bibinfo{title}{Experimental investigation of in-line flow-induced
+  vibration of a rotating circular cylinder},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{847}
+  (\bibinfo{year}{2018}) \bibinfo{pages}{664--699}.
+%Type = Article
+\bibitem[{Fouras et~al.(2008)Fouras, Lo~Jacono, and Hourigan}]{fouras2008}
+\bibinfo{author}{A.~Fouras}, \bibinfo{author}{D.~Lo~Jacono},
+  \bibinfo{author}{K.~Hourigan},
+\newblock \bibinfo{title}{Target-free stereo {PIV}: a novel technique with
+  inherent error estimation and improved accuracy},
+\newblock \bibinfo{journal}{Exp. Fluids} \bibinfo{volume}{44}
+  (\bibinfo{year}{2008}) \bibinfo{pages}{317--329}.
+%Type = Phdthesis
+\bibitem[{Tomboulides(1993)}]{Tomboulides1993}
+\bibinfo{author}{A.~Tomboulides}, \bibinfo{title}{Direct and Large-eddy
+  Simulation of Wake Flows: Flow Past a Sphere}, Ph.D. thesis, Princeton
+  University, \bibinfo{year}{1993}.
+%Type = Article
+\bibitem[{Constantinescu and Squires(2003)}]{Constantinescu2003}
+\bibinfo{author}{G.~S. Constantinescu}, \bibinfo{author}{K.~D. Squires},
+\newblock \bibinfo{title}{{LES} and {DES} investigations of turbulent flow over
+  a sphere at {R}e = 10,000},
+\newblock \bibinfo{journal}{Flow Turbul. Combust.} \bibinfo{volume}{70}
+  (\bibinfo{year}{2003}) \bibinfo{pages}{267--298}.
+%Type = Article
+\bibitem[{Grandemange et~al.(2014)Grandemange, Gohlke, and
+  Cadot}]{Grandemange2014}
+\bibinfo{author}{M.~Grandemange}, \bibinfo{author}{M.~Gohlke},
+  \bibinfo{author}{O.~Cadot},
+\newblock \bibinfo{title}{Statistical axisymmetry of the turbulent sphere
+  wake},
+\newblock \bibinfo{journal}{Exp. Fluids} \bibinfo{volume}{55}
+  (\bibinfo{year}{2014}) \bibinfo{pages}{1838}.
+%Type = Article
+\bibitem[{Graftieaux et~al.(2001)Graftieaux, Michard, and
+  Grosjean}]{graftieaux2001}
+\bibinfo{author}{L.~Graftieaux}, \bibinfo{author}{M.~Michard},
+  \bibinfo{author}{N.~Grosjean},
+\newblock \bibinfo{title}{Combining {PIV}, {POD} and vortex identification
+  algorithms for the study of unsteady turbulent swirling flows},
+\newblock \bibinfo{journal}{Meas. Sci. Technol.} \bibinfo{volume}{12}
+  (\bibinfo{year}{2001}) \bibinfo{pages}{1422}.
+%Type = Article
+\bibitem[{Towne et~al.(2018)Towne, Schmidt, and Colonius}]{Towne2018}
+\bibinfo{author}{A.~Towne}, \bibinfo{author}{O.~T. Schmidt},
+  \bibinfo{author}{T.~Colonius},
+\newblock \bibinfo{title}{Spectral proper orthogonal decomposition and its
+  relationship to dynamic mode decomposition and resolvent analysis},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{847}
+  (\bibinfo{year}{2018}) \bibinfo{pages}{821--867}.
+%Type = Article
+\bibitem[{Shiels and Leonard(2001)}]{Shiels2001}
+\bibinfo{author}{D.~Shiels}, \bibinfo{author}{A.~Leonard},
+\newblock \bibinfo{title}{Investigation of a drag reduction on a circular
+  cylinder in rotary oscillation},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{431}
+  (\bibinfo{year}{2001}) \bibinfo{pages}{297--322}.
+%Type = Article
+\bibitem[{Thompson and Hourigan(2005)}]{Thompson2005}
+\bibinfo{author}{M.~C. Thompson}, \bibinfo{author}{K.~Hourigan},
+\newblock \bibinfo{title}{The shear-layer instability of a circular cylinder
+  wake},
+\newblock \bibinfo{journal}{Phys. Fluids} \bibinfo{volume}{17}
+  (\bibinfo{year}{2005}) \bibinfo{pages}{021702}.
+%Type = Article
+\bibitem[{Tokumaru and Dimotakis(1991)}]{Tokumaru1991}
+\bibinfo{author}{P.~T. Tokumaru}, \bibinfo{author}{P.~E. Dimotakis},
+\newblock \bibinfo{title}{Rotary oscillation control of a cylinder wake},
+\newblock \bibinfo{journal}{J. Fluid Mech.} \bibinfo{volume}{224}
+  (\bibinfo{year}{1991}) \bibinfo{pages}{77--90}.
+
+\end{thebibliography}
